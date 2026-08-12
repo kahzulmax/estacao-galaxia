@@ -4,91 +4,451 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: #080014;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050509;
     color: white;
-    min-height: 100vh;
+    line-height: 1.6;
 }
 
-header {
+
+/* FUNDO PRINCIPAL */
+
+.hero {
+    min-height: 75vh;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(5, 0, 15, 0.85)
+        ),
+        url("https://cdn.discordapp.com/attachments/1536895867032834118/1537182045283811328/1d0aa47f57796d038cfb39da29dbe20b.jpg?ex=6a7e1bd7&is=6a7cca57&hm=2cd705aecfada49b93423e443b74ff5b78e5b268e67e57b73f42338e77a5c1b2&");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    border-bottom: 2px solid #b000ff;
+}
+
+
+.hero-content {
+    position: relative;
+
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, #12002b, #25004d);
+
+    padding: 30px;
+
+    z-index: 2;
 }
 
-header h1 {
-    font-size: 45px;
-    color: #d66cff;
-    text-shadow: 0 0 15px #a020f0;
+
+.hero h1 {
+    font-size: clamp(40px, 8vw, 90px);
+
+    letter-spacing: 8px;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px #ff00ff,
+        0 0 25px #b000ff,
+        0 0 50px #7000ff;
 }
 
-header p {
-    margin-top: 10px;
-    color: #c9a7ff;
+
+.hero p {
+    margin-top: 15px;
+
+    font-size: 18px;
+
+    letter-spacing: 4px;
+
+    color: #e6c8ff;
 }
+
+
+/* BOTÃO PRINCIPAL */
+
+.main-button {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 14px 30px;
+
+    border: 1px solid #d000ff;
+
+    border-radius: 8px;
+
+    background: rgba(120, 0, 180, 0.5);
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+
+.main-button:hover {
+    background: #a000ff;
+
+    box-shadow:
+        0 0 15px #d000ff,
+        0 0 30px #8000ff;
+
+    transform: translateY(-3px);
+}
+
+
+/* MENU */
 
 nav {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
     display: flex;
+
     justify-content: center;
+
+    flex-wrap: wrap;
+
     gap: 25px;
+
     padding: 18px;
-    background: #10001f;
-    border-bottom: 1px solid #8f00ff;
+
+    background: rgba(5, 0, 10, 0.95);
+
+    border-bottom: 1px solid #7200ff;
+
+    backdrop-filter: blur(10px);
 }
+
 
 nav a {
     color: white;
+
     text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
 }
+
 
 nav a:hover {
-    color: #d66cff;
+    color: #e000ff;
+
+    text-shadow: 0 0 10px #e000ff;
 }
+
+
+/* CONTEÚDO */
 
 main {
-    max-width: 1000px;
+    max-width: 1100px;
+
     margin: auto;
-    padding: 40px 20px;
+
+    padding: 70px 20px;
 }
+
 
 section {
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+
+    scroll-margin-top: 80px;
 }
+
 
 h2 {
-    color: #d66cff;
     margin-bottom: 20px;
-    text-shadow: 0 0 10px #8f00ff;
+
+    color: #dc7aff;
+
+    font-size: 32px;
+
+    text-shadow: 0 0 15px #8c00ff;
 }
+
+
+.section-description {
+    margin-bottom: 30px;
+
+    color: #bbb;
+}
+
+
+/* CARDS */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 25px;
+}
+
 
 .card {
-    background: #140022;
-    border: 1px solid #8f00ff;
-    border-radius: 15px;
     padding: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 0, 45, 0.95),
+            rgba(10, 0, 20, 0.95)
+        );
+
+    border: 1px solid #7200ff;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 0 15px rgba(120, 0, 255, 0.25);
+
+    transition: 0.3s;
+}
+
+
+.card:hover {
+    transform: translateY(-7px);
+
+    border-color: #df00ff;
+
+    box-shadow:
+        0 0 20px rgba(220, 0, 255, 0.45);
+}
+
+
+.card h3 {
+    margin: 15px 0;
+
+    color: #fff;
+
+    font-size: 22px;
+}
+
+
+.card p {
+    color: #c5c5c5;
+
     margin-bottom: 20px;
-    box-shadow: 0 0 15px rgba(143, 0, 255, 0.3);
 }
 
-button {
-    background: #8f00ff;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    cursor: pointer;
+
+/* IMAGEM DOS PROJETOS */
+
+.card-image {
+    height: 170px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #17002c,
+            #47006b
+        );
+
+    color: #d67aff;
+
+    font-size: 25px;
+
     font-weight: bold;
+
+    border: 1px solid #8c00ff;
+
+    text-shadow: 0 0 15px #d000ff;
 }
 
-button:hover {
-    background: #b52cff;
-    box-shadow: 0 0 15px #b52cff;
+
+/* BOTÕES */
+
+.button {
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    border-radius: 7px;
+
+    background: #7600c9;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.3s;
 }
+
+
+.button:hover {
+    background: #b000ff;
+
+    box-shadow: 0 0 15px #c000ff;
+}
+
+
+/* PARCEIROS */
+
+.partner-card {
+    text-align: center;
+}
+
+
+.partner-icon {
+    width: 75px;
+
+    height: 75px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 2px solid #c000ff;
+
+    color: #df7aff;
+
+    font-size: 35px;
+
+    box-shadow:
+        0 0 20px #8000ff;
+}
+
+
+/* SOBRE */
+
+.info-box {
+    padding: 30px;
+
+    border-left: 3px solid #c000ff;
+
+    background: rgba(100, 0, 150, 0.12);
+
+    border-radius: 10px;
+}
+
+
+.info-box p {
+    margin-bottom: 15px;
+
+    color: #d0d0d0;
+}
+
+
+/* RODAPÉ */
 
 footer {
     text-align: center;
-    padding: 30px;
-    background: #10001f;
-    color: #aaa;
+
+    padding: 50px 20px;
+
+    background: #08000d;
+
+    border-top: 1px solid #7000ff;
+}
+
+
+footer h3 {
+    color: #d56cff;
+
+    margin-bottom: 10px;
+}
+
+
+footer p {
+    color: #999;
+}
+
+
+.copyright {
+    margin-top: 20px;
+
+    font-size: 13px;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 70vh;
+
+        background-attachment: scroll;
+    }
+
+
+    .hero h1 {
+        font-size: 38px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .hero p {
+        font-size: 13px;
+
+        letter-spacing: 2px;
+    }
+
+
+    nav {
+        gap: 15px;
+
+        padding: 14px 10px;
+    }
+
+
+    nav a {
+        font-size: 14px;
+    }
+
+
+    main {
+        padding: 50px 15px;
+    }
+
+
+    section {
+        margin-bottom: 70px;
+    }
+
+
+    h2 {
+        font-size: 27px;
+    }
+
+
+    .card {
+        padding: 20px;
+    }
+
 }
